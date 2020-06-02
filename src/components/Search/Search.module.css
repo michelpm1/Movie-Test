@@ -1,0 +1,8 @@
+.Search {
+    padding: 2rem;
+}
+
+.Search > input {
+    height: 2rem;
+    width: 20rem;
+}

@@ -1,0 +1,11 @@
+.Header {
+    background-color: #111115;
+    height: 4rem;
+    font-family: 'Serif';
+    text-align: center;
+    padding-top: 0.5rem;
+}
+.Header > h3 {
+    color:red;
+
+}

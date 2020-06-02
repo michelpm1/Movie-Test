@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from './Search.module.css';
+import Styles from './Search.module.css';
 
 const Search = () => {
     return (
-        <div>
-            search
+        <div className={Styles.Search}>
+            <input className="formControl" type="text" placeholder="Search" />
         </div>
     )
 }

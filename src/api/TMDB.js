@@ -9,10 +9,10 @@ export const fetchDiscoverList = async () => {
     }
 }
 
-export const fetchSearchMovie = async () => {
+export const fetchSearchMovie = async (query) => {
     try {
         const params = {
-            query: 'mars',
+            query
         };
         const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/search/movie/?api_key=${process.env.REACT_APP_API_KEY}`, { params });
         return res.data;

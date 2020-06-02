@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import { Router } from '@reach/router';
+import Layout from './components/Layout/Layout';
+import MoviePage from './containers/MoviesPage/MovieContainer.js';
+import Styles from './App.module.css';
+const NoneSelected = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      No CV selected
     </div>
-  );
+  )
 }
 
-export default App;
+const App = () => {
+  return (
+    <Router>
+      <Layout className={Styles.General} path="/">
+        {/* <NoneSelected default /> */}
+        <MoviePage default />
+      </Layout>
+    </Router >
+  )
+}
+
+export default App

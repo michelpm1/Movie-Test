@@ -3,7 +3,7 @@ import Styles from './Rating.module.css';
 import PropTypes from 'prop-types';
 import StarRatingComponent from 'react-star-rating-component';
 
-const Rating = ({ changeFilterRate }) => {
+const Rating = ({ changeFilterRate, actualRate }) => {
     // const [filterRate, setFilterRate] = useState(5);
 
     return (
@@ -11,7 +11,7 @@ const Rating = ({ changeFilterRate }) => {
             <StarRatingComponent
                 name="filterRate"
                 starCount={5}
-                value={0}
+                value={actualRate}
                 onStarClick={(e) => changeFilterRate(e)}
             />
         </div>

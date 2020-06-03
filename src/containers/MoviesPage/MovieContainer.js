@@ -15,17 +15,17 @@ const MovieContainer = () => {
     // State to save filtered movies, avoiding changing movieList, it will enable
     // the search of movieList again instead of filtering what was already filtered.
     const [filteredMovieList, setFilteredMovieList] = useState([]);
-    const [actualFilter, setActualFilter] = useState(-1);
+    const [actualRate, setActualRate] = useState(-1);
 
     const changeFilterRate = (value) => {
         //Disable filter
-        if (value === actualFilter) {
-            setActualFilter(-1);
+        if (value === actualRate) {
+            setActualRate(-1);
             setFilteredMovieList([]);
             debugger;
 
         } else {
-            setActualFilter(value);
+            setActualRate(value);
             const rateRange = [
                 [0, 2],
                 [2, 4],
@@ -67,7 +67,7 @@ const MovieContainer = () => {
     return (
         <div className={Styles.MovieContainer}>
             <Search searchMovie={searchMovie} />
-            <Rating changeFilterRate={changeFilterRate} />
+            <Rating actualRate={actualRate} changeFilterRate={changeFilterRate} />
             <ListOfMovies movieList={filteredMovieList.length ? filteredMovieList : movieList} />
         </div>
     )

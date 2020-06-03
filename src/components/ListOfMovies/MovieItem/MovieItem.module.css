@@ -6,7 +6,7 @@
 }
 
 .MovieItem > img {
-    flex: 1 0 23%;
+    flex: 1 0 24%;
     margin: 1rem;
     max-height: 270px;
 }
@@ -34,5 +34,7 @@
 
 
 .MovieItem .MovieOverview { 
+    margin-top: 0.8rem;
     flex: 1 0 20%;
+    padding-left: 1rem;
 }

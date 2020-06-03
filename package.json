@@ -13,7 +13,8 @@
     "bootstrap": "^4.5.0",
     "react": "^16.8",
     "react-dom": "^16.8",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "react-star-rating-component": "^1.4.1"
   },
   "scripts": {
     "start": "react-scripts start",

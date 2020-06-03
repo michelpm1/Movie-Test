@@ -4,31 +4,41 @@ import Search from '../../components/Search/Search';
 import { fetchDiscoverList, fetchSearchMovie } from '../../api/TMDB';
 import Styles from './MovieContainer.module.css';
 import Rating from '../../components/Rating/Rating';
+import { sortByPopularity } from '../../utils/movieUtils';
+
 const MovieContainer = () => {
 
-    // 2 Lists to avoid fetching data again when query search is empty.
+    // Two Lists to avoid fetching data again when query search is empty.
     const [movieList, setMovieList] = useState([]);
     const [discoverList, setDiscoverList] = useState([]);
 
-    const sortByPopularity = (movieList) => {
-        return movieList.sort(function (a, b) {
-            return b.popularity - a.popularity;
-        });
-    }
+    // State to save filtered movies, avoiding changing movieList, it will enable
+    // the search of movieList again instead of filtering what was already filtered.
+    const [filteredMovieList, setFilteredMovieList] = useState([]);
+    const [actualFilter, setActualFilter] = useState(-1);
 
     const changeFilterRate = (value) => {
-        const rateRange = [
-            [0, 2],
-            [2, 4],
-            [4, 6],
-            [6, 8],
-            [8, 10]
-        ];
-        const actualRange = rateRange[value - 1];
-        const filteredMovieList = movieList.filter((movie) => {
-            return movie.vote_average > actualRange[0] && movie.vote_average <= actualRange[1];
-        })
-        setMovieList(filteredMovieList);
+        //Disable filter
+        if (value === actualFilter) {
+            setActualFilter(-1);
+            setFilteredMovieList([]);
+            debugger;
+
+        } else {
+            setActualFilter(value);
+            const rateRange = [
+                [0, 2],
+                [2, 4],
+                [4, 6],
+                [6, 8],
+                [8, 10]
+            ];
+            const actualRange = rateRange[value - 1];
+            const filteredMovieList = movieList.filter((movie) => {
+                return movie.vote_average >= actualRange[0] && movie.vote_average < actualRange[1];
+            })
+            setFilteredMovieList(!filteredMovieList.length ? [-1] : filteredMovieList);
+        }
     }
 
     const getDiscoverList = async () => {
@@ -39,12 +49,14 @@ const MovieContainer = () => {
     }
 
     const searchMovie = async (query) => {
+        setFilteredMovieList([]);
         if (query === '') {
             setMovieList(discoverList);
         } else {
             const searchedMovieList = await fetchSearchMovie(query);
             const sortedSearchedMovieList = await sortByPopularity(searchedMovieList.results);
-            setMovieList(sortedSearchedMovieList);
+
+            setMovieList(!sortedSearchedMovieList.length ? [-1] : sortedSearchedMovieList);
         }
     }
 
@@ -56,7 +68,7 @@ const MovieContainer = () => {
         <div className={Styles.MovieContainer}>
             <Search searchMovie={searchMovie} />
             <Rating changeFilterRate={changeFilterRate} />
-            <ListOfMovies movieList={movieList} />
+            <ListOfMovies movieList={filteredMovieList.length ? filteredMovieList : movieList} />
         </div>
     )
 }

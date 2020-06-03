@@ -4,13 +4,15 @@ import MovieItem from './MovieItem/MovieItem';
 const ListOfMovies = ({ movieList }) => {
     console.log(movieList);
     return (
-        <div className={Styles.MovieList}>
-            {movieList.map((item, key) => {
-                return (
-                    <MovieItem movie={item} key={key} />
-                )
-            })}
-        </div>
+        <>
+            {movieList[0] !== -1 ? <div className={Styles.MovieList}>
+                {movieList.map((item, key) => {
+                    return (
+                        <MovieItem movie={item} key={key} />
+                    )
+                })}
+            </div> : <span>No results</span>}
+        </>
     )
 }
 

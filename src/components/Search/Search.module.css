@@ -1,5 +1,7 @@
 .Search {
     padding: 2rem;
+    float: left;
+    width: 24rem;
 }
 
 .Search > input {

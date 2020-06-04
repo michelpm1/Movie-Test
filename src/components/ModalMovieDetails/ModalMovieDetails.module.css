@@ -1,70 +1,63 @@
 
-.modal {
+.ModalMovieDetails {
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     z-index: 10;
-    -webkit-transition: all 0.5s 0.5s ease-in-out;
-    transition: all 0.5s 0.5s ease-in-out;
     background-color: rgba(0,0,0,0.6); 
   }
 
-.modalContent {
-    padding: 10px;
-    max-width: 600px;
-    min-width: 360px;
+.ModalMovieDetails .ModalContent {
+    padding: 1rem;
+    max-width: 45rem;
+    min-width: 36rem;
     max-height: 85%;
     overflow: auto;
     position: absolute;
     top: 5%;
     left: 50%;
     z-index: 2;
-    border-radius: 3px;
+    border-radius: 0.3rem;
     background: #fff;
     -webkit-transform: translate(-50%, 0);
     -ms-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
-    -webkit-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-  }
-
-  .modalContent > span:nth-child(1) {
-    position: relative;
-    bottom: 0.5rem;
   }
   
-  .close {
+  .ModalMovieDetails .ModalContent .Close {
     color: #aaa;
     float: right;
-    font-size: 28px;
+    font-size: 2.8rem;
     font-weight: bold;
+    position: relative;
+    bottom: 1.5rem;
   }
 
-  .modalContent > div > img:nth-child(2) {
+  .ModalMovieDetails .ModalContent > div > img:nth-child(2) {
     padding-right: 1rem;
     float: left;
   }
   
-  .close:hover,
-  .close:focus {
+  .ModalMovieDetails .ModalContent .Close:hover,
+  .Close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
   }
 
-  .BottomDetails {
+  .ModalMovieDetails .ModalContent > div:nth-child(2) .BottomDetails {
       display: inline-block;
       padding-top: 1rem;
       width: 100%;
   }
 
 /* Overflow */
-.modal p {
+.ModalMovieDetails p {
     color: black !important;
 }
 
-.modal h4 {
+.ModalMovieDetails h4 {
     color: black !important;
 }

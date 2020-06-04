@@ -4,10 +4,9 @@ const ModalMovieDetails = ({ movieDetails, openMovieDetails }) => {
 
     return (
         <>
-            <div id="myModal" className={Styles.modal}>
-
-                <div className={Styles.modalContent}>
-                    <span onClick={() => openMovieDetails(null)} className={Styles.close}>&times;</span>
+            <div className={Styles.ModalMovieDetails}>
+                <div className={Styles.ModalContent}>
+                    <span onClick={() => openMovieDetails(null)} className={Styles.Close}>&times;</span>
                     <div>
                         <h4>{movieDetails.title}</h4>
                         <img alt={'poster'} src={`${process.env.REACT_APP_IMAGE_BASE_URL}${movieDetails.poster_path}`}></img>
@@ -20,8 +19,6 @@ const ModalMovieDetails = ({ movieDetails, openMovieDetails }) => {
                             <p>Vote averange: {movieDetails.vote_average}</p>
                             <p>Adult movie: {movieDetails.adult ? 'Yes' : 'No'}</p>
                         </div>
-
-
                     </div>
                 </div>
 

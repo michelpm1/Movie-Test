@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Styles from './Rating.module.css';
 import PropTypes from 'prop-types';
 import StarRatingComponent from 'react-star-rating-component';

@@ -24,7 +24,6 @@ const MovieContainer = () => {
         if (value === actualRate) {
             setActualRate(-1);
             setFilteredMovieList([]);
-            debugger;
 
         } else {
             setActualRate(value);
@@ -44,8 +43,6 @@ const MovieContainer = () => {
     }
 
     const openMovieDetails = (movie) => {
-        console.log(movie);
-        debugger;
         setMovieDetails(movie);
     }
 

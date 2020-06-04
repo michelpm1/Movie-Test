@@ -7,9 +7,9 @@ const ListOfMovies = ({ movieList, openMovieDetails }) => {
     return (
         <div className={Styles.ListOfMovies}>
             {movieList[0] !== -1 ? <div className={Styles.List}>
-                {movieList.map((item, key) => {
+                {movieList.map((item, index) => {
                     return (
-                        <MovieItem openMovieDetails={openMovieDetails} movie={item} key={key} />
+                        <MovieItem openMovieDetails={openMovieDetails} movie={item} key={index} />
                     )
                 })}
             </div> : <span>No results</span>}

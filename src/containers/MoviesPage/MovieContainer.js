@@ -13,7 +13,7 @@ const MovieContainer = () => {
     const [movieList, setMovieList] = useState([]);
     const [discoverList, setDiscoverList] = useState([]);
 
-    // State to save filtered movies, avoiding changing movieList, it will enable
+    // State to save filtered movies, avoiding changes to movieList, it will enable
     // the search of movieList again instead of filtering what was already filtered.
     const [filteredMovieList, setFilteredMovieList] = useState([]);
     const [actualRate, setActualRate] = useState(-1);

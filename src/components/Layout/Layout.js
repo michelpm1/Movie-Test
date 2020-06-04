@@ -1,7 +1,7 @@
 import Header from '../Header/Header';
 import React from "react"
 import PropTypes from "prop-types"
-import "./Layout.css"
+import "./Layout.module.css"
 
 const Layout = ({ children }) => {
     return (

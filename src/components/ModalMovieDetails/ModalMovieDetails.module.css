@@ -35,7 +35,6 @@
     bottom: 0.5rem;
   }
   
-  /* The Close Button */
   .close {
     color: #aaa;
     float: right;
@@ -61,6 +60,7 @@
       width: 100%;
   }
 
+/* Overflow */
 .modal p {
     color: black !important;
 }

@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import StarRatingComponent from 'react-star-rating-component';
 
 const Rating = ({ changeFilterRate, actualRate }) => {
-    // const [filterRate, setFilterRate] = useState(5);
 
     return (
         <div className={Styles.Rating}>

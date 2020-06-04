@@ -9,7 +9,8 @@
 .MovieItem > img {
     flex: 1 0 24%;
     margin: 1rem;
-    max-height: 270px;
+    max-width: 12rem;
+    max-height: 18rem;
 }
 
 .MovieItem .MovieOverview > p:nth-child(2) { 

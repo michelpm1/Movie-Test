@@ -20,6 +20,7 @@ const Rating = ({ changeFilterRate, actualRate }) => {
 
 Rating.propTypes = {
     changeFilterRate: PropTypes.func.isRequired,
+    actualRate: PropTypes.number.isRequired
 }
 
 export default Rating;

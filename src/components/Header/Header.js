@@ -1,8 +1,7 @@
-import PropTypes from "prop-types"
 import React from "react"
 import styles from "./Header.module.css";
 
-const Header = ({ siteTitle }) => (
+const Header = () => (
   <header className={styles.Header}>
     <h3>The Movie Company</h3>
   </header>

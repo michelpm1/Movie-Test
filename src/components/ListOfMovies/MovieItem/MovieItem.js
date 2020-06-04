@@ -2,7 +2,7 @@ import React from 'react';
 import Styles from './MovieItem.module.css';
 import PropTypes from "prop-types"
 
-const MovieItem = ({ movie, key, openModal, openMovieDetails }) => {
+const MovieItem = ({ movie, key, openMovieDetails }) => {
     return (
         <div onClick={() => openMovieDetails(movie)} className={Styles.MovieItem} key={key}>
             <img alt={'poster'} src={`${process.env.REACT_APP_IMAGE_BASE_URL}${movie.poster_path}`}></img>
@@ -14,6 +14,12 @@ const MovieItem = ({ movie, key, openModal, openMovieDetails }) => {
             </div>
         </div>
     )
+}
+
+MovieItem.propTypes = {
+    movie: PropTypes.object.isRequired,
+    key: PropTypes.number.isRequired,
+    openMovieDetails: PropTypes.func.isRequired,
 }
 
 export default MovieItem;

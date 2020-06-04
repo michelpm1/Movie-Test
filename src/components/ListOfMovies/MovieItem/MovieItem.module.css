@@ -3,6 +3,7 @@
     margin: 1rem;
     display: flex;
     flex-wrap: wrap;
+    cursor: pointer;
 }
 
 .MovieItem > img {

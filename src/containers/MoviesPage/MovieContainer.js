@@ -4,6 +4,7 @@ import Search from '../../components/Search/Search';
 import { fetchDiscoverList, fetchSearchMovie } from '../../api/TMDB';
 import Styles from './MovieContainer.module.css';
 import Rating from '../../components/Rating/Rating';
+import ModalMovieDetails from '../../components/ModalMovieDetails/ModalMovieDetails';
 import { sortByPopularity } from '../../utils/movieUtils';
 
 const MovieContainer = () => {
@@ -16,6 +17,7 @@ const MovieContainer = () => {
     // the search of movieList again instead of filtering what was already filtered.
     const [filteredMovieList, setFilteredMovieList] = useState([]);
     const [actualRate, setActualRate] = useState(-1);
+    const [movieDetails, setMovieDetails] = useState(null);
 
     const changeFilterRate = (value) => {
         //Disable filter
@@ -39,6 +41,12 @@ const MovieContainer = () => {
             })
             setFilteredMovieList(!filteredMovieList.length ? [-1] : filteredMovieList);
         }
+    }
+
+    const openMovieDetails = (movie) => {
+        console.log(movie);
+        debugger;
+        setMovieDetails(movie);
     }
 
     const getDiscoverList = async () => {
@@ -68,7 +76,8 @@ const MovieContainer = () => {
         <div className={Styles.MovieContainer}>
             <Search searchMovie={searchMovie} />
             <Rating actualRate={actualRate} changeFilterRate={changeFilterRate} />
-            <ListOfMovies movieList={filteredMovieList.length ? filteredMovieList : movieList} />
+            <ListOfMovies openMovieDetails={openMovieDetails} movieList={filteredMovieList.length ? filteredMovieList : movieList} />
+            {movieDetails && <ModalMovieDetails openMovieDetails={openMovieDetails} movieDetails={movieDetails} />}
         </div>
     )
 }
